@@ -2,5 +2,8 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "cSpell.words": [
         "inorder"
-    ]
+    ],
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
