@@ -1,0 +1,16 @@
+second->data = 1;
+    // second->next = third;
+    // third->data = -3;
+    // third->next = four;
+    // four->data = 11;
+    // four->next = five;
+    // five->data = 10;
+    // five->next = six;
+    // six->data = 2;
+    // six->next = seven;
+    // seven->data = 7;
+    // seven->next = eight;
+    // eight->data = 9;
+    // eight->next = nine;
+    // nine->data = 18;
+    // nine->next = NULL;
