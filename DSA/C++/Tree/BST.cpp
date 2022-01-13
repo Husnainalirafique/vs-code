@@ -5,9 +5,8 @@ struct node
     int data;
     struct node *left;
     struct node *right;
-    node(int val)
-    {
-        data = val;
+    node(int val){
+        data=val;
         left = NULL;
         right = NULL;
     }
@@ -43,27 +42,30 @@ int main()
 {
     /*
        
-           1
+           12
          /   \
-        2     3
+        5     14
        / \   / \
-      4   5 6   7
+      4   6 13 15
     
     */
-    struct node* root = new node(1);
-    root->left = new node(2);
-    root->right = new node(3);
+    node *root = new node(12);
+    root->left = new node(5);
+    root->right = new node(14);
     root->left->left = new node(4);
-    root->left->right = new node(5);
-    root->right->left = new node(6);
-    root->right->right = new node(7);
+    root->left->right = new node(6);
+    root->right->left = new node(13);
+    root->right->right = new node(15);
+    
     cout<<"pre order"<<endl;
     preorder(root);
-    cout<<endl;
-    cout<<"in order"<<endl;
-    inorder(root);
-    cout<<endl;
-    cout<<"post order"<<endl;
-    postorder(root);
+    // cout<<endl;
+    // cout<<"in order"<<endl;
+    // inorder(root);
+    // cout<<endl;
+    // cout<<"post order"<<endl;
+    // postorder(root);
+
+
     return 0;
 }

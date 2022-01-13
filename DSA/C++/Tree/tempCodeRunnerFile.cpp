@@ -1,0 +1,2 @@
+endl;
+    preorder(root);

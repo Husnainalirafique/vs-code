@@ -17,7 +17,7 @@ void displayElements(node *n)
     {
         cout << n->data << " " << endl;
         n = n->next;
-        ++count;
+        count++;
     }
     cout<<"Total number of elements in the linked list is : "<<count<<endl;
 }
