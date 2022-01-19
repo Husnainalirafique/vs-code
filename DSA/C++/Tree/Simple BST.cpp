@@ -1,16 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
+// Creating tree
 struct node
 {
     int data;
     struct node *left;
     struct node *right;
+    // A constructor to store values in nodes
     node(int val){
         data=val;
         left = NULL;
         right = NULL;
     }
 };
+// Functions for tree traversals
 void preorder(struct node* root){
     if(root==NULL)
     {
@@ -40,6 +43,7 @@ void postorder(struct node* root){
 }
 int main()
 {
+    // Representation of created tree
     /*
        
            12
@@ -49,6 +53,8 @@ int main()
       4   6 13 15
     
     */
+
+   // Assigning dynamically memory to tree nodes + Assigning values
     node *root = new node(12);
     root->left = new node(5);
     root->right = new node(14);
@@ -56,16 +62,12 @@ int main()
     root->left->right = new node(6);
     root->right->left = new node(13);
     root->right->right = new node(15);
-    
-    cout<<"pre order"<<endl;
+    cout<<"preorder is = ";
     preorder(root);
-    // cout<<endl;
-    // cout<<"in order"<<endl;
-    // inorder(root);
-    // cout<<endl;
-    // cout<<"post order"<<endl;
-    // postorder(root);
-
-
+    cout<<endl<<"postOrder is = ";
+    postorder(root);
+    cout<<endl<<"inorder is =";
+    inorder(root);
+    
     return 0;
 }

@@ -3,9 +3,10 @@ using namespace std;
 #define n 5
 int stack[n];
 int top = -1;
+
 bool isFull()
 {
-    if (top == n-1)
+    if (top == n - 1)
     {
         return true;
     }
@@ -25,16 +26,17 @@ bool isEmpty()
         return false;
     }
 }
-peek()
+void peek()
 {
-    if(isEmpty()){
-        cout<<"can't peek stack is empty"<<endl;
+    if (isEmpty())
+    {
+        cout << "can't peek stack is empty" << endl;
     }
     else
     {
-        cout<<stack[top];
+        cout << endl
+             << "Peeked element is = " << stack[top];
     }
-    
 }
 void push()
 {
@@ -45,8 +47,8 @@ void push()
     }
     else
     {
-        cout<<"inset value in stack =";
-        cin>>data;
+        cout << "Enter value to insert in stack =";
+        cin >> data;
         top++;
         stack[top] = data;
         cout << "element inserted is = " << stack[top] << endl;
@@ -61,21 +63,37 @@ void pop()
     }
     else
     {
-       data=stack[top];
-       top--;
-       cout<<"poped element is = "<<data<<endl; 
+        data = stack[top];
+        top--;
+        cout << "popped element is = " << data << endl;
     }
+}
+void display()
+{
+    if (!isEmpty())
+    {
+        for (int i = 0; i <= top; i++)
+        {
+            cout << stack[i];
+        }
+    }
+    else
+    {
+        cout<<"stack is empty"<<endl;
+    }
+    
 }
 
 int main()
 {
-    cout << "---------Main Manu----------" << endl;
+    cout << "---------Main Menu----------" << endl;
     cout << "1.Push" << endl;
     cout << "2.Pop" << endl;
     cout << "3.Peek" << endl;
-    cout << "4.Exit" << endl;
+    cout << "4.Display" << endl;
+    cout << "5.Exit" << endl;
     int choice;
-    while (choice != 4)
+    while (choice != 5)
     {
         cout << endl
              << "Enter your choice = ";
@@ -92,9 +110,12 @@ int main()
             peek();
             break;
         case 4:
+            display();
+            break;
+        case 5:
             cout << "exit" << endl;
         default:
-            cout << "invalid choice"<<endl;
+            cout << "invalid choice" << endl;
         }
     }
     return 0;

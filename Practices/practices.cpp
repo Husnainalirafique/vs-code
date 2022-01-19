@@ -1,71 +1,123 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 struct node
 {
     int data;
-    struct node *left;
-    struct node *right;
-    node(int val){
-        data=val;
-        left = NULL;
-        right = NULL;
-    }
+    node *leftClid;
+    node *rightClid;
 };
-void preorder(struct node* root){
-    if(root==NULL)
+node *newNode(int val)
+{
+    node *tempnode = new node();
+    tempnode->data = val;
+    tempnode->leftClid = NULL;
+    tempnode->rightClid = NULL;
+    return tempnode;
+}
+node *root;
+void insert(int data)
+{
+    node *current;
+    node *parent;
+    // node *tempnode = new node();
+    // tempnode->data = data;
+    // tempnode->leftClid = NULL;
+    // tempnode->rightClid = NULL;
+
+    if (root == NULL)
     {
+        root = newNode(data);
         return;
     }
-    cout<<root->data<<" ";
-    preorder(root->left);
-    preorder(root->right);
-}
-void inorder(struct node* root){
-    if(root == NULL)
+    else
     {
-        return;
+        current = root;
+
+        while (true)
+        {
+            parent = current;
+            if (data <= current->data)
+            {
+                current = current->leftClid; // then put root left child address in root
+                if (current == NULL)         // if there is nothing in current
+                {
+                    parent->leftClid = newNode(data);
+                    return;
+                }
+            }
+            else // if current is NULL then
+            {
+                current = current->rightClid; // put root's right child address in root
+                if (current == NULL)
+                {
+                    parent->rightClid = newNode(data);
+                    return;
+                }
+            }
+        }
     }
-    inorder(root -> left);
-    cout<<root->data<<" ";
-    inorder(root ->right);
 }
-void postorder(struct node* root){
-    if(root == NULL)
+
+void search(int data)
+{
+    struct node *current = root;
+    if (current->data == data)
     {
-        return;
+        cout << "Element is present = " << current->data << endl;
     }
-    postorder(root -> left);
-    postorder(root ->right);
-    cout<<root->data<<" ";
+    else
+    {
+        while (1)
+        {
+            if (current->data > data)
+            {
+                current = current->leftClid;
+            }
+            else
+            {
+                current = current->rightClid;
+            }
+            if (current == NULL)
+            {
+                cout << "The tree is empty \n";
+                return;
+            }
+
+            if (current->data == data)
+            {
+                cout << "Value found = " << current->data << endl;
+                return;
+            }
+        }
+    }
 }
+
 int main()
 {
-    /*
-       
-           12
-         /   \
-        5     14
-       / \   / \
-      4   6 13 15
-    
-    */
-    node *root = new node(12);
-    root->left = new node(5);
-    root->right = new node(14);
-    root->left->left = new node(4);
-    root->left->right = new node(6);
-    root->right->left = new node(13);
-    root->right->right = new node(15);
-    
-    cout<<"pre order"<<endl;
-    preorder(root);
-    // cout<<endl;
-    // cout<<"in order"<<endl;
-    // inorder(root);
-    // cout<<endl;
-    // cout<<"post order"<<endl;
-    // postorder(root);
+    int i, j;
+    while (true)
+    {
+        cout << "Choose the following \n 1.insert \n 2.search \n 3.exit" << endl;
+        cin >> i;
 
-
-    return 0;
+        switch (i)
+        {
+        case 1:
+            cout << "Enter a number = ";
+            cin >> j;
+            insert(j);
+            break;
+        case 2:
+            cout << "Enter a number = ";
+            cin >> j;
+            search(j);
+            break;
+        case 3:
+            exit(0);
+            break;
+        default:
+            cout << "Invalid input";
+        }
+    }
 }
