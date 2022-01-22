@@ -56,14 +56,13 @@ void push()
 }
 void pop()
 {
-    int data;
     if (isEmpty())
     {
         cout << "cant pop stack is empty" << endl;
     }
     else
     {
-        data = stack[top];
+        int data = stack[top];
         top--;
         cout << "popped element is = " << data << endl;
     }

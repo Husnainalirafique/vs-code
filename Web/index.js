@@ -1,1 +1,0 @@
-alert("pagre is loaded");

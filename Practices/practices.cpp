@@ -1,123 +1,76 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
+#define max 5
+int arr[max];
+int top = -1;
 
-struct node
+bool isFull()
 {
-    int data;
-    node *leftClid;
-    node *rightClid;
-};
-node *newNode(int val)
-{
-    node *tempnode = new node();
-    tempnode->data = val;
-    tempnode->leftClid = NULL;
-    tempnode->rightClid = NULL;
-    return tempnode;
+    if (top == max - 1)
+        return true;
+    return false;
 }
-node *root;
-void insert(int data)
-{
-    node *current;
-    node *parent;
-    // node *tempnode = new node();
-    // tempnode->data = data;
-    // tempnode->leftClid = NULL;
-    // tempnode->rightClid = NULL;
 
-    if (root == NULL)
+bool isEmpty()
+{
+    if (top == -1)
+        return true;
+    return false;
+}
+
+void push(int data)
+{
+    if (!isFull())
     {
-        root = newNode(data);
-        return;
+        top++;
+        arr[top] = data;
+        cout << "pushed element is : " << data << endl;
+    }
+    return;
+}
+void pop()
+{
+    if (!isEmpty())
+    {
+        int data = arr[top];
+        top--;
+        cout << "Poped element is : " << data << endl;
     }
     else
     {
-        current = root;
-
-        while (true)
-        {
-            parent = current;
-            if (data <= current->data)
-            {
-                current = current->leftClid; // then put root left child address in root
-                if (current == NULL)         // if there is nothing in current
-                {
-                    parent->leftClid = newNode(data);
-                    return;
-                }
-            }
-            else // if current is NULL then
-            {
-                current = current->rightClid; // put root's right child address in root
-                if (current == NULL)
-                {
-                    parent->rightClid = newNode(data);
-                    return;
-                }
-            }
-        }
+        cout << "Cant pop stack is empty" << endl;
     }
 }
-
-void search(int data)
+void peek()
 {
-    struct node *current = root;
-    if (current->data == data)
+    if (!isEmpty())
     {
-        cout << "Element is present = " << current->data << endl;
+        cout << arr[top];
     }
     else
     {
-        while (1)
-        {
-            if (current->data > data)
-            {
-                current = current->leftClid;
-            }
-            else
-            {
-                current = current->rightClid;
-            }
-            if (current == NULL)
-            {
-                cout << "The tree is empty \n";
-                return;
-            }
-
-            if (current->data == data)
-            {
-                cout << "Value found = " << current->data << endl;
-                return;
-            }
-        }
+        cout << "stack is empty" << endl;
     }
 }
-
+void display()
+{
+    if (!isEmpty())
+    {
+        for (int i = 0; i <= top; i++)
+        {
+            cout << arr[i]<<" ";
+        }
+    }
+    else
+    {
+        cout<<"Stack is empty"<<endl;
+    }
+    
+}
 int main()
 {
-    int i, j;
-    while (true)
-    {
-        cout << "Choose the following \n 1.insert \n 2.search \n 3.exit" << endl;
-        cin >> i;
-
-        switch (i)
-        {
-        case 1:
-            cout << "Enter a number = ";
-            cin >> j;
-            insert(j);
-            break;
-        case 2:
-            cout << "Enter a number = ";
-            cin >> j;
-            search(j);
-            break;
-        case 3:
-            exit(0);
-            break;
-        default:
-            cout << "Invalid input";
-        }
-    }
+    push(9);
+    push(10);
+    display();
+    return 0;
 }
