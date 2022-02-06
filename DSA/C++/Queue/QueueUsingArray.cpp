@@ -68,7 +68,7 @@ void isfull()
 }
 void isEmpty()
 {
-    if (front == -1)
+    if (front == -1 && rear == -1)
         cout << "queue is empty" << endl;
     else
         cout << "queque is not empty" << endl;

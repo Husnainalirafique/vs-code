@@ -6,7 +6,7 @@ int main()
     int i, j, c;
     for (i = 0; i <= 4; i++)
     {
-        cout << "enter the number = ";
+        cout << "Enter the number = ";
         cin >> arr[i];
     }
     

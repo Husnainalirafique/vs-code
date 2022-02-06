@@ -62,6 +62,7 @@
         }
         else if (front == rear)
         {
+             cout << "Element deleted from queue is ------> " << queue[front] << endl;
             front=rear=-1;
         }
         else
