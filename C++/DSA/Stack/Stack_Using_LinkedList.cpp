@@ -46,10 +46,9 @@ void push(int data)
 
 void pop()
 {
-    int data;
     if (!isEmpty())
     {
-        data = top->data;
+        int data = top->data;
         cout << "poped data elemt is = " << data << endl;
         top = top->next;
     }
