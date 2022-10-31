@@ -12,12 +12,13 @@ struct node
     }
 };
 
-node *head;
+node *front = NULL;
+node *rear = NULL;
 
 // Methods
 bool isEmpty()
 {
-    if (head == NULL)
+    if (front == NULL && rear == NULL)
     {
         return true;
     }
@@ -30,21 +31,17 @@ bool isEmpty()
 void enQueue(int data)
 {
     node *newNode = new node(data);
-    if (isEmpty())
+    if (front == NULL)
     {
-        head = newNode;
+        front = rear = newNode;
         cout << "inserted data is = " << data << endl;
         return;
     }
+
     else
     {
-        node *currentNode = head;
-        while (currentNode->next != NULL)
-        {
-            currentNode = currentNode->next;
-        }
-
-        currentNode->next = newNode;
+        rear->next = newNode;
+        rear = newNode;
         cout << "inserted data is = " << data << endl;
     }
 }
@@ -56,12 +53,18 @@ void deQueue()
         cout << "Queue is empty";
         return;
     }
+
     else
     {
-        int data;
-        data = head->data;
+        int data = front->data;
+        front = front->next;
         cout << "Deleted data is = " << data << endl;
-        head = head->next;
+
+        if (front == NULL)
+        {
+            rear = NULL;
+            return;
+        }
     }
 }
 
@@ -74,7 +77,7 @@ void peek()
     }
     else
     {
-        cout << head->data << endl;
+        cout << front->data << endl;
     }
 }
 
@@ -87,10 +90,10 @@ void display()
     }
     else
     {
-        node *currentnode = head;
+        node *currentnode = front;
         while (currentnode != NULL)
         {
-            cout << currentnode->data<<" <- ";
+            cout << currentnode->data << " - ";
             currentnode = currentnode->next;
         }
         cout << "NULL";
@@ -99,6 +102,7 @@ void display()
 
 int main()
 {
+
     cout << "---------Main Manu----------" << endl;
     cout << "1.Enqueue" << endl;
     cout << "2.Dequeue" << endl;
@@ -114,10 +118,10 @@ int main()
         switch (choice)
         {
         case 1:
-            int data1;
+            int data;
             cout << "Enter data to insert = ";
-            cin >> data1;
-            enQueue(data1);
+            cin >> data;
+            enQueue(data);
             break;
         case 2:
             deQueue();

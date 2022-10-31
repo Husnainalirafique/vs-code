@@ -12,13 +12,13 @@ struct node
     }
 };
 
-node *head;
+node *top = NULL;
 
 // Methods
 
 bool isEmpty()
 {
-    if (head == NULL)
+    if (top == NULL)
     {
         return true;
     }
@@ -32,41 +32,42 @@ void push(int data)
     node *newNode = new node(data);
     if (isEmpty())
     {
-        head = newNode;
+        top = newNode;
         cout << "Pushed data is = " << data << endl;
         return;
     }
     else
     {
-        newNode->next = head;
-        head = newNode;
+        newNode->next = top;
+        top = newNode;
         cout << "Pushed data is = " << data << endl;
+    }
+}
+
+void pop()
+{
+    int data;
+    if (!isEmpty())
+    {
+        data = top->data;
+        cout << "poped data elemt is = " << data << endl;
+        top = top->next;
+    }
+
+    else
+    {
+        cout << "Stack is empty";
     }
 }
 void peek()
 {
     if (!isEmpty())
     {
-        cout << "The last entered data/ data at top is = " << head->data << endl;
+        cout << "The last entered data/ data at top is = " << top->data << endl;
     }
     else
     {
         cout << "Can't peek stack is empty";
-    }
-}
-void pop()
-{
-    int data;
-    if (!isEmpty())
-    {
-        data = head->data;
-        cout << "poped data elemt is = " << data << endl;
-        head = head->next;
-    }
-
-    else
-    {
-        cout << "Stack is empty";
     }
 }
 void display()
@@ -78,7 +79,7 @@ void display()
     }
     else
     {
-        node *currentnode = head;
+        node *currentnode = top;
         while (currentnode != NULL)
         {
             cout << "| " << currentnode->data << " |" << endl;
