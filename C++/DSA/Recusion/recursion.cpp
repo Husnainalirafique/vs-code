@@ -1,19 +1,18 @@
 #include <iostream>
 using namespace std;
 
-void printnum(int number)
+void function(int value)
 {
-    if (number == 0)
-    {
-        return;
-    }
-    
-    cout << number<<endl;
-    printnum(number - 1);
+   if (value < 1)
+   {
+      return;
+   }
+   cout << value;
+   function(value - 1);
 }
 
 int main(int argc, char const *argv[])
 {
-    printnum(5);
-    return 0;
+   function(5);
+   return 0;
 }
