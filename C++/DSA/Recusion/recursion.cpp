@@ -7,12 +7,12 @@ void function(int value)
    {
       return;
    }
-   cout << value;
+   cout << value <<endl;
    function(value - 1);
 }
 
 int main(int argc, char const *argv[])
 {
-   function(5);
+   function(7);
    return 0;
 }
