@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    g
+
     int arr[5];
     int i, j, c;
     for (i = 0; i <= 4; i++)
