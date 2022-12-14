@@ -6,9 +6,9 @@ public class BS {
 
     public static void main(String[] args) {
         int[] sortedArray = { -1, 0, 1, 2, 3, 4, 5, 6 };
-        // {0, 1, 2, 3, 4, 5, 6, 7}
+                           // {0, 1, 2, 3, 4, 5, 6, 7}
         System.out.println(Arrays.toString(sortedArray));
-        BS.bs(sortedArray, -1);
+        BS.bs(sortedArray, 6);
     }
 
     public static void bs(int[] arr, int target) {
