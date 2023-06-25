@@ -12,7 +12,6 @@ public class LinearSearch {
                 return;
             }
         }
-        
 
     }
 
@@ -26,5 +25,6 @@ public class LinearSearch {
 
         LinearSearch.linersearch(array, n);
 
+        in.close();
     }
 }

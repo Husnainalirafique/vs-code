@@ -68,7 +68,7 @@ public class LL {
             return;
         }
 
-        System.out.println("Enter position of node to be inserted = ");
+        System.out.print("Enter position of node to be inserted = ");
         int position = in.nextInt();
 
         if (position < 1) {
