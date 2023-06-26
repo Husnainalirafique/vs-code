@@ -10,7 +10,7 @@ public class BinarySearch {
         BinarySearch.binarySearch(sortedArray, 2);
     }
 
-    static void binarySearch(int[] arr, int target) {
+    public static void binarySearch(int[] arr, int target) {
         int start = 0;
         int end = arr.length - 1;
 

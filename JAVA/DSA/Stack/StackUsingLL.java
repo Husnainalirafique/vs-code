@@ -1,7 +1,6 @@
 package DSA.Stack;
 public class StackUsingLL {
     node top = null;
-
     class node {
         int data;
         node next;
@@ -39,10 +38,8 @@ public class StackUsingLL {
         if (isEmpty()) {
             System.out.println("stack is empty");
         }
-
-        node currentNode = top;
-        System.out.println("poped data is = "+currentNode.data);
-        top = currentNode.next;
+        System.out.println("poped data is = "+top.data);
+        top = top.next;
     }
 
     public static void main(String[] args) {
