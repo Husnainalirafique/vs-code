@@ -15,7 +15,6 @@ public class BinarySearch {
         int end = arr.length - 1;
 
         // find the mid of the array
-
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (target < arr[mid]) {
