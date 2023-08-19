@@ -1,4 +1,4 @@
-package DSA.Sorting;
+package Sorting;
 
 public class Swap {
     public static void swap(int[] a,int i, int j){

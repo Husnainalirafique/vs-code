@@ -1,3 +1,3 @@
-fun st() : String{
-    return  "Hello, World!"
+fun main() {
+    
 }

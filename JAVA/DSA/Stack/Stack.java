@@ -1,61 +1,69 @@
-package DSA.Stack;
-public class Stack {
+package Stack;
+
+
+class StackUsingArray {
     int n = 5;
-    int[] stack = new int[n];
+    int stack[] = new int[n];
     int top = -1;
 
-    public boolean isFull() {
-        if (top == n - 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isEmpty() {
+    boolean isEmpty() {
         if (top == -1) {
             return true;
-        }
-        return false;
-    }
-
-    public int peek(){
-        return stack[top];
-    }
-
-    public void push(int data) {
-        if (isFull()) {
-            System.out.println("Stack is full");
-            return;
         } else {
-            top++;
-            stack[top] = data;
-            System.out.println("inserted element is = " + data);
+            return false;
         }
     }
 
-    public void pop() {
+    boolean isFull() {
+        if (top == n - 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void push(int data) {
+        if (isFull()) {
+            System.out.println("stack is full");
+        } else {
+            stack[++top] = data;
+            System.out.println("The inserted data is " + data);
+            return;
+        }
+    }
+
+    void pop() {
         if (isEmpty()) {
             System.out.println("Stack is empty");
-            return;
         } else {
             int data;
-            data = stack[top];
+            data = stack[top];  
             top--;
-            System.out.println("poped data is = " + data);
+            System.out.println("poped data is " + data);
+            return;
         }
     }
+    void printStack(){
+        if (isEmpty()) {
+            System.out.println("Stack is empty");
+        } else {
+            for(int i = 0; i <= top;i++){
+                System.out.print(stack[i]+" ");
+            }
+        }
+    }
+}
 
+public class Stack {
     public static void main(String[] args) {
-        Stack stack = new Stack();
-        stack.push(3);
-        stack.push(2);
-        stack.push(1);
-
-        // stack.pop();
-        // stack.pop();
-        // stack.pop();
-
-        System.out.println(stack.peek());
-        // System.out.println(stack.isEmpty());
+        StackUsingArray stack = new StackUsingArray();
+        stack.push(5);
+        stack.push(4);
+        stack.push(7);
+        stack.push(9);
+        stack.push(10);
+        stack.pop();
+        stack.push(19);
+        stack.printStack();
     }
 }
