@@ -1,6 +1,6 @@
 package Stack;
 public class StackUsingLL {
-    node top = null;
+    node top;
     class node {
         int data;
         node next;
@@ -11,17 +11,12 @@ public class StackUsingLL {
         }
     }
 
-    public boolean isEmpty() {
-        if (top == null) {
-            return true;
-        }
-        return false;
-    }
+
 
     public void push(int data) {
         node newNode = new node(data);
 
-        if (isEmpty()) {
+        if (top == null) {
             top = newNode;
             System.out.println("inserted node is = " + newNode.data);
             return;
@@ -35,10 +30,12 @@ public class StackUsingLL {
     }
 
     public void pop(){
-        if (isEmpty()) {
+        if (top == null) {
             System.out.println("stack is empty");
+            return;
         }
-        System.out.println("poped data is = "+top.data);
+        int data = top.data;
+        System.out.println("poped data is = "+data);
         top = top.next;
     }
 
@@ -52,7 +49,7 @@ public class StackUsingLL {
         stack.pop();
         stack.pop();
         stack.pop();
+        stack.pop();
 
-        System.out.println(stack.isEmpty());
     }
 }
